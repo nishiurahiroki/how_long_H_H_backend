@@ -1,0 +1,22 @@
+{
+  "name": "how_long_H_H_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nishiurahiroki/how_long_H_H_backend.git",
+  "author": "nishiurahiroki@gmail.com <nishiurahiroki@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@apollo/server": "^4.0.0",
+    "@types/node": "^18.8.5",
+    "graphql": "^16.6.0"
+  },
+  "scripts": {
+    "compile": "npx tsc",
+    "postinstall": "npm run compile",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
