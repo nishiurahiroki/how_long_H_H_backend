@@ -8,30 +8,28 @@ const typeDefs = `#graphql
     day:Int
   }
 
-  type Suspended {
+  type LastSerial {
     date:Date
   }
 
   type Query {
-    suspended: Suspended
+    lastSerial: LastSerial
   }
 `;
 
-const now = new Date()
-
 const date = {
-  year : now.getFullYear(),
-  month : now.getMonth(),
-  day: now.getDay()
+  year : 2018,
+  month : 11,
+  day: 26
 }
 
-const suspended = {
+const lastSerial = {
   date
 }
 
 const resolvers = {
   Query: {
-    suspended: () => suspended,
+    lastSerial: () => lastSerial,
   },
 };
 
