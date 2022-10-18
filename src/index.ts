@@ -1,6 +1,11 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
+import SuspendedRepository from './repositories/SuspendedRepository.js';
+
+
+const suspended : Date = await SuspendedRepository.getSupendedDate()
+
 const typeDefs = `#graphql
   type Date {
     year:Int
@@ -18,9 +23,9 @@ const typeDefs = `#graphql
 `;
 
 const date = {
-  year : 2018,
-  month : 11,
-  day: 26
+  year : suspended.getFullYear(),
+  month : suspended.getMonth(),
+  day: suspended.getDay()
 }
 
 const lastSerial = {
@@ -41,5 +46,3 @@ const server = new ApolloServer({
 const { url } = await startStandaloneServer(server, {
   listen: { port: Number.parseInt(process.env.PORT) || 4000 },
 });
-
-console.log(`🚀  Server ready at: ${url}`);
