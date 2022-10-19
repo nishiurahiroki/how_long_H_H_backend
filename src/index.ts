@@ -25,7 +25,7 @@ const typeDefs = `#graphql
 const date = {
   year : suspended.getFullYear(),
   month : suspended.getMonth(),
-  day: suspended.getDay()
+  day: suspended.getDate()
 }
 
 const lastSerial = {
