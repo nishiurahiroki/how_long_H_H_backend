@@ -4,7 +4,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import SuspendedRepository from './repositories/SuspendedRepository.js';
 
 
-const suspended : Date = await SuspendedRepository.getSupendedDate()
+const suspendedDate : Date = await SuspendedRepository.getSupendedDate()
 
 const typeDefs = `#graphql
   type Date {
@@ -13,28 +13,28 @@ const typeDefs = `#graphql
     day:Int
   }
 
-  type LastSerial {
+  type Suspended {
     date:Date
   }
 
   type Query {
-    lastSerial: LastSerial
+    suspended: Suspended
   }
 `;
 
 const date = {
-  year : suspended.getFullYear(),
-  month : suspended.getMonth(),
-  day: suspended.getDate()
+  year : suspendedDate.getFullYear(),
+  month : suspendedDate.getMonth(),
+  day: suspendedDate.getDate()
 }
 
-const lastSerial = {
+const suspended = {
   date
 }
 
 const resolvers = {
   Query: {
-    lastSerial: () => lastSerial,
+    suspended: () => suspended,
   },
 };
 
