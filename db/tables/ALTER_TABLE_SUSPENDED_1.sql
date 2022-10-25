@@ -1,0 +1,1 @@
+ALTER TABLE H_H_supended MODIFY COLUMN last_serialization date COMMENT '休載開始日';

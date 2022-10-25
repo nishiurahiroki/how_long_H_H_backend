@@ -1,0 +1,1 @@
+ALTER TABLE H_H_supended RENAME COLUMN last_serialization TO suspended_date;

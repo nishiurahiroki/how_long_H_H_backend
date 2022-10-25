@@ -12,7 +12,7 @@ export default class SuspendedRepository {
         'SELECT * FROM H_H_supended',
         function(err, results) {
           const suspended = results[0];
-          resolve(new Date(suspended.last_serialization));
+          resolve(new Date(suspended.suspended_date));
           reject(new Date())
         }
       );
